@@ -196,4 +196,6 @@ exec_always xrdb ~/.Xresources
 # No borders
 hide_edge_borders both
 
-
+# Brightness up/down
+#bindsym XF86MonBrightnessUp exec sudo backlight.sh up 
+#bindsym XF86MonBrightnessDown exec sudo backlight.sh down
