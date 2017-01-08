@@ -1,1 +1,0 @@
-/home/jared/.bash_profile
