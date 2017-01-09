@@ -56,7 +56,8 @@ set $menu dmenu_run
     bindsym $mod+Ctrl+c reload
 
     # exit sway (logs you out of your X session)
-    bindsym $mod+Ctrl+x exit "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Ctrl+x exec "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
+    
 #
 # Moving around:
 #
