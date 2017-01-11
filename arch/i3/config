@@ -113,7 +113,7 @@ set $menu dmenu_run -l 11
     bindsym $mod+u layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Period fullscreen
+    bindsym $mod+period fullscreen toggle
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Ctrl+space floating toggle
