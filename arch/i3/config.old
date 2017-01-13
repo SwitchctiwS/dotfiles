@@ -6,7 +6,7 @@
 ### Inits
 #
 # Background
-exec_always feh --bg-fill ~/Pictures/Wallpapers/antergos.jpg 
+exec_always feh --bg-fill /usr/share/sway/arch.png
 
 # Update urxct 
 exec_always xrdb ~/.Xresources
@@ -108,7 +108,9 @@ set $menu dmenu_run -l 11
     bindsym $mod+o splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+u layout toggle
+    bindsym $mod+Ctrl+y layout stacking
+    bindsym $mod+y layout tabbed
+    bindsym $mod+u layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+period fullscreen toggle
@@ -141,10 +143,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $down resize grow height 5 px or 5 ppt
-    bindsym $up resize shrink height 5 px or 5 ppt
-    bindsym $right resize grow width 5 px or 5 ppt
-    bindsym $left resize shrink width 5 px or 5 ppt
+    bindsym $left resize shrink width 10 px or 10 ppt
+    bindsym $down resize grow height 10 px or 10 ppt
+    bindsym $up resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow width 10 px or 10 ppt
 
     # return to default mode
     bindsym Return mode "default"
@@ -156,8 +158,6 @@ bindsym $mod+comma mode "resize"
 # Status Bar:
 #
 bar {
-    mode hide 
-    modifier $mod
     position top
     status_command i3status
     colors {

@@ -1,0 +1,43 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	interval = 5
+}
+
+order += "wireless wlp8s0"
+order += "ethernet enp7s0"
+order += "battery 1"
+order += "volume master"
+order += "tztime local"
+
+wireless wlp8s0 {
+	format_up = "Wlan: %essid at %quality (%ip %bitrate)"
+	format_down = "Wlan: down"
+}
+
+ethernet enp7s0 {
+	format_up = "Eth: %ip"
+	format_down = "Eth: down"
+}
+
+battery 1 {
+	format = "Batt: %status (%percentage %remaining)"
+	format_down = "Batt: none"
+	hide_seconds = true
+	integer_battery_capacity = true
+	status_chr = "CHR"
+	status_bat = "USE"
+	status_full = "FULL"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 15
+}
+
+volume master {
+	format = "Vol: %volume"
+	format_muted = "Vol: muted (%volume)"
+	device = "pulse:1"
+}
+
+tztime local {
+	format = "%d-%b-%Y %I:%M:%S%p" 
+}

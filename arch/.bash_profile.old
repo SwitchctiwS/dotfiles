@@ -1,0 +1,10 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+#xrdb ~/.Xresources
+
+PATH=$PATH:~/.bin
+export PATH
