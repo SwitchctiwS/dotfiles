@@ -190,3 +190,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #d
 # Brightness up/down
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
+
+# HDMI
+set $mode_display Ext Screen (h) HDMI1 (o) HDMI1 OFF
+mode "$mode_display" {
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
+    bindsym o exec --no-startup-id xrandr --output HDMI1 --off, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Ctrl+n mode "$mode_display"

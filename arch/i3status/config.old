@@ -11,7 +11,7 @@ order += "volume master"
 order += "tztime local"
 
 wireless wlp8s0 {
-	format_up = "Wlan: %essid at %quality (%ip %bitrate)"
+	format_up = "Wlan: %essid at %quality (%ip at %bitrate)"
 	format_down = "Wlan: down"
 }
 
