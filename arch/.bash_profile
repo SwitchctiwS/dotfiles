@@ -24,8 +24,6 @@
 # update ./Xresources
 #
 
-xrdb ~/.Xresources
-
 #
 # add ~/.bin to PATH
 # 

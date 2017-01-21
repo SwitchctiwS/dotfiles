@@ -35,7 +35,7 @@ battery 1 {
 volume master {
 	format = "Vol: %volume"
 	format_muted = "Vol: muted (%volume)"
-	device = "pulse:1"
+	device = "pulse"
 }
 
 tztime local {

@@ -11,6 +11,8 @@ exec_always feh --bg-fill ~/Pictures/Wallpapers/antergos.jpg
 # Update urxct 
 exec_always xrdb ~/.Xresources
 
+# Initialize volume to 25%
+exec_always --no-startup-id volume.sh startup
 
 ### Variables
 #
@@ -18,7 +20,7 @@ exec_always xrdb ~/.Xresources
 set $mod Mod4
 
 # Window tile font
-font pango:monospace 8
+font pango:monospace 10
 
 # Home row direction keys, like vim
 set $left h
@@ -182,19 +184,20 @@ hide_edge_borders both
 # Laptop Keybindings:
 #
 
-# Pulseaudio controls
+# Volume controls
 # Currently will only effect laptop speakers
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh up #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh down  #decrease sound volume
 
 # Brightness up/down
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # HDMI
-set $mode_display Ext Screen (h) HDMI1 (o) HDMI1 OFF
+set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) ROOM HDMI1 (o) HDMI1 OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
+    bindsym Ctrl+h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --above eDP1, mode "default"
     bindsym o exec --no-startup-id xrandr --output HDMI1 --off, mode "default"
 
     bindsym Return mode "default"
