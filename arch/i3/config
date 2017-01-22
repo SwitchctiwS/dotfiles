@@ -194,7 +194,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # HDMI
-set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) ROOM HDMI1 (o) HDMI1 OFF
+set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) Room HDMI1 (o) HDMI1 Off
 mode "$mode_display" {
     bindsym Ctrl+h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
     bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --above eDP1, mode "default"
@@ -204,3 +204,14 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Ctrl+n mode "$mode_display"
+
+# Sound
+set $mode_sound Sound Output (h) HDMI (s) Laptop Speakers
+mode "$mode_sound" {
+    bindsym h exec --no-startup-id sound-output.sh hdmi, mode "default"
+    bindsym s exec --no-startup-id sound-output.sh laptop, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Ctrl+s mode "$mode_sound"

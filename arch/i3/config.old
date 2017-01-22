@@ -194,9 +194,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # HDMI
-set $mode_display Ext Screen (h) HDMI1 (o) HDMI1 OFF
+set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) ROOM HDMI1 (o) HDMI1 OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
+    bindsym Ctrl+h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --above eDP1, mode "default"
     bindsym o exec --no-startup-id xrandr --output HDMI1 --off, mode "default"
 
     bindsym Return mode "default"
