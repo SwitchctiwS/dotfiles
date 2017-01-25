@@ -6,13 +6,13 @@
 ### Inits
 #
 # Background
-exec_always feh --bg-fill ~/Pictures/Wallpapers/antergos.jpg 
+exec_always feh --bg-scale ~/Pictures/Wallpapers/antergos.jpg 
 
 # Update urxct 
 #exec_always xrdb ~/.Xresources
 
 # Initialize Compton
-exec compton --fade-delta 5 --inactive-dim 0.4
+exec compton -b --xrender-sync --xrender-sync-fence --inactive-dim 0.4
 
 # Initialize volume to 25%
 exec --no-startup-id volume.sh startup
@@ -208,7 +208,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # HDMI
-set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) Room HDMI1 (o) HDMI1 Off
+set $mode_display Ext Screen (h) HDMI1 On (Ctrl+h) Room HDMI1 (o) HDMI1 Off
 mode "$mode_display" {
     bindsym Ctrl+h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
     bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --above eDP1, mode "default"
