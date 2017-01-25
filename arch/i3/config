@@ -6,13 +6,21 @@
 ### Inits
 #
 # Background
-exec_always feh --bg-fill ~/Pictures/Wallpapers/antergos.jpg 
+exec_always feh --bg-scale ~/Pictures/Wallpapers/antergos.jpg 
 
 # Update urxct 
-exec_always xrdb ~/.Xresources
+#exec_always xrdb ~/.Xresources
+
+# Initialize Compton
+exec compton -b --xrender-sync --xrender-sync-fence --inactive-dim 0.4
 
 # Initialize volume to 25%
-exec_always --no-startup-id volume.sh startup
+exec --no-startup-id volume.sh startup
+
+# Vivaldi on workspace 1 
+exec vivaldi-stable
+# Term on workspace 2
+exec urxvt
 
 ### Variables
 #
@@ -20,7 +28,7 @@ exec_always --no-startup-id volume.sh startup
 set $mod Mod4
 
 # Window tile font
-font pango:monospace 10
+font pango:dejavu 10
 
 # Home row direction keys, like vim
 set $left h
@@ -32,6 +40,7 @@ set $right l
 set $term urxvt
 # Your preferred application launcher
 set $menu dmenu_run -l 11
+#set $menu rofi -show combi -fullscreen
 
 
 ### Key bindings
@@ -58,7 +67,7 @@ set $menu dmenu_run -l 11
     bindsym $mod+Ctrl+c reload
 
     # exit sway (logs you out of your X session)
-    bindsym $mod+Ctrl+x exec "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Ctrl+q exec "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
     
 #
 # Moving around:
@@ -76,9 +85,11 @@ set $menu dmenu_run -l 11
 #
 # Workspaces:
 #
+    set $workspace_1 "1 "
+    set $workspace_2 "2 "
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
+    bindsym $mod+1 workspace $workspace_1
+    bindsym $mod+2 workspace $workspace_2
     bindsym $mod+3 workspace 3
     bindsym $mod+4 workspace 4
     bindsym $mod+5 workspace 5
@@ -88,8 +99,8 @@ set $menu dmenu_run -l 11
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
     # move focused container to workspace
-    bindsym $mod+Ctrl+1 move container to workspace 1
-    bindsym $mod+Ctrl+2 move container to workspace 2
+    bindsym $mod+Ctrl+1 move container to workspace $workspace_1 
+    bindsym $mod+Ctrl+2 move container to workspace $workspace_2
     bindsym $mod+Ctrl+3 move container to workspace 3
     bindsym $mod+Ctrl+4 move container to workspace 4
     bindsym $mod+Ctrl+5 move container to workspace 5
@@ -100,6 +111,9 @@ set $menu dmenu_run -l 11
     bindsym $mod+Ctrl+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    assign [class="Vivaldi-stable"] $workspace_1
+    assign [class="URxvt"] $workspace_2
 #
 # Layout stuff:
 #
@@ -194,7 +208,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
 
 # HDMI
-set $mode_display Ext Screen (h) HDMI1 ON (Ctrl+h) Room HDMI1 (o) HDMI1 Off
+set $mode_display Ext Screen (h) HDMI1 On (Ctrl+h) Room HDMI1 (o) HDMI1 Off
 mode "$mode_display" {
     bindsym Ctrl+h exec --no-startup-id xrandr --output HDMI1 --mode 1360x768 --left-of eDP1, mode "default"
     bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --above eDP1, mode "default"
@@ -215,3 +229,7 @@ mode "$mode_sound" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Ctrl+s mode "$mode_sound"
+
+# Lock Screen
+bindsym $mod+Ctrl+x exec i3lock --color 323232
+
