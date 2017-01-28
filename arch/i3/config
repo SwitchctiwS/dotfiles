@@ -197,7 +197,7 @@ hide_edge_borders both
 
 # Volume controls
 # Currently will only effect laptop speakers
-bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh up #increase sound volume
+bindsym XF86AudioRaiseVolume exec volume.sh up #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh down  #decrease sound volume
 
 # Brightness up/down
@@ -217,7 +217,7 @@ mode "$mode_display" {
 bindsym $mod+Ctrl+n mode "$mode_display"
 
 # Sound
-set $mode_sound Sound Output (p) Headphones (h) HDMI (s) Laptop Speakers
+set $mode_sound_output Sound Output (p) Headphones (h) HDMI (s) Laptop Speakers
 mode "$mode_sound_output" {
     bindsym h exec --no-startup-id sound-output.sh hdmi, mode "default"
     bindsym p exec --no-startup-id sound-output.sh headphones, mode "default"

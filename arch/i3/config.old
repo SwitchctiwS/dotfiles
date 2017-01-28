@@ -14,9 +14,6 @@ exec_always feh --bg-scale ~/Pictures/Wallpapers/antergos.jpg
 # Initialize Compton
 exec compton -b --xrender-sync --xrender-sync-fence --inactive-dim 0.4
 
-# Initialize volume to 25%
-exec --no-startup-id volume.sh startup
-
 # Vivaldi on workspace 1 
 exec vivaldi-stable
 # Term on workspace 2
@@ -220,15 +217,16 @@ mode "$mode_display" {
 bindsym $mod+Ctrl+n mode "$mode_display"
 
 # Sound
-set $mode_sound Sound Output (h) HDMI (s) Laptop Speakers
-mode "$mode_sound" {
+set $mode_sound Sound Output (p) Headphones (h) HDMI (s) Laptop Speakers
+mode "$mode_sound_output" {
     bindsym h exec --no-startup-id sound-output.sh hdmi, mode "default"
-    bindsym s exec --no-startup-id sound-output.sh laptop, mode "default"
+    bindsym p exec --no-startup-id sound-output.sh headphones, mode "default"
+    bindsym s exec --no-startup-id sound-output.sh computer, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Ctrl+s mode "$mode_sound"
+bindsym $mod+Ctrl+s mode "$mode_sound_output"
 
 # Lock Screen
 bindsym $mod+Ctrl+x exec i3lock --color 323232
