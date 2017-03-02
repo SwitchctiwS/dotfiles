@@ -197,7 +197,7 @@ hide_edge_borders both
 
 # Volume controls
 # Currently will only effect laptop speakers
-bindsym XF86AudioRaiseVolume exec volume.sh up #increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh up #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh down  #decrease sound volume
 
 # Brightness up/down

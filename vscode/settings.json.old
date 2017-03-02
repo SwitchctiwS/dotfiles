@@ -1,4 +1,5 @@
 // Place your settings in this file to overwrite the default settings
+// ~/.config/Code/User/settings.json
 {
     "files.autoSave": "afterDelay",
     "editor.renderWhitespace": "all",
