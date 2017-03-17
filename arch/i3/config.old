@@ -15,9 +15,11 @@ exec_always feh --bg-scale ~/Pictures/Wallpapers/antergos.jpg
 exec compton -b --xrender-sync --xrender-sync-fence --inactive-dim 0.4
 
 # Vivaldi on workspace 1 
-exec vivaldi-stable
+#exec vivaldi-stable
 # Term on workspace 2
-exec urxvt
+#exec urxvt
+# vscode on workspace 2
+#exec code
 
 ### Variables
 #
@@ -82,11 +84,13 @@ set $menu dmenu_run -l 11
 #
 # Workspaces:
 #
-    set $workspace_1 "1 "
-    set $workspace_2 "2 "
+    #set $workspace_1 "1 "
+    #set $workspace_2 "2 "
     # switch to workspace
-    bindsym $mod+1 workspace $workspace_1
-    bindsym $mod+2 workspace $workspace_2
+    #bindsym $mod+1 workspace $workspace_1
+    #bindsym $mod+2 workspace $workspace_2
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
     bindsym $mod+4 workspace 4
     bindsym $mod+5 workspace 5
@@ -96,8 +100,10 @@ set $menu dmenu_run -l 11
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
     # move focused container to workspace
-    bindsym $mod+Ctrl+1 move container to workspace $workspace_1 
-    bindsym $mod+Ctrl+2 move container to workspace $workspace_2
+    #bindsym $mod+Ctrl+1 move container to workspace $workspace_1 
+    #bindsym $mod+Ctrl+2 move container to workspace $workspace_2
+    bindsym $mod+Ctrl+1 move container to workspace 1
+    bindsym $mod+Ctrl+2 move container to workspace 2
     bindsym $mod+Ctrl+3 move container to workspace 3
     bindsym $mod+Ctrl+4 move container to workspace 4
     bindsym $mod+Ctrl+5 move container to workspace 5
@@ -109,8 +115,9 @@ set $menu dmenu_run -l 11
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    assign [class="Vivaldi-stable"] $workspace_1
-    assign [class="URxvt"] $workspace_2
+    #assign [class="Vivaldi-stable"] $workspace_1
+    #assign [class="URxvt"] $workspace_2
+    #assign [class="Code"] $workspace_2
 #
 # Layout stuff:
 #
@@ -217,11 +224,12 @@ mode "$mode_display" {
 bindsym $mod+Ctrl+n mode "$mode_display"
 
 # Sound
-set $mode_sound_output Sound Output (p) Headphones (h) HDMI (s) Laptop Speakers
+set $mode_sound_output Sound Output (p) Headphones (h) HDMI (b) BlueTooth Speaker (s) Laptop Speakers
 mode "$mode_sound_output" {
     bindsym h exec --no-startup-id sound-output.sh hdmi, mode "default"
     bindsym p exec --no-startup-id sound-output.sh headphones, mode "default"
     bindsym s exec --no-startup-id sound-output.sh computer, mode "default"
+    bindsym b exec --no-startup-id sound-output.sh bluetooth, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

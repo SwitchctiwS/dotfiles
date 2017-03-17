@@ -6,38 +6,43 @@ general {
 
 order += "wireless wlp8s0"
 order += "ethernet enp7s0"
+order += "cpu_usage"
 order += "battery 1"
 order += "volume master"
 order += "tztime local"
 
 wireless wlp8s0 {
-	format_up = "Wlan: %essid at %quality (%ip at %bitrate)"
-	format_down = "Wlan: down"
+	format_up = " %essid at %quality (%ip at %bitrate)"
+	format_down = " Down"
 }
 
 ethernet enp7s0 {
-	format_up = "Eth: %ip"
-	format_down = "Eth: down"
+	format_up = " %ip"
+	format_down = " Down"
 }
 
 battery 1 {
-	format = "Batt: %status (%percentage %remaining)"
-	format_down = "Batt: none"
+	format = "%status (%percentage %remaining)"
+	format_down = " none"
 	hide_seconds = true
 	integer_battery_capacity = true
-	status_chr = "CHR"
-	status_bat = "USE"
-	status_full = "FULL"
+	status_chr = " CHR"
+	status_bat = " USE"
+	status_full = " FULL"
 	path = "/sys/class/power_supply/BAT%d/uevent"
 	low_threshold = 15
 }
 
 volume master {
-	format = "Vol: %volume"
-	format_muted = "Vol: muted (%volume)"
+	format = " %volume"
+	format_muted = " Muted (%volume)"
 	device = "pulse"
 }
 
+cpu_usage {
+	format = " %usage"
+}
+
 tztime local {
-	format = "%d-%b-%Y %I:%M:%S%p" 
+	format = " %d-%b-%Y %I:%M:%S%p" 
 }

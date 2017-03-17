@@ -3,6 +3,8 @@
 # ~/.config/i3/config
 #
 
+# ERGODOX Keyboard Configuration
+
 ### Inits
 #
 # Background
@@ -30,10 +32,10 @@ set $mod Mod4
 font pango:dejavu 10
 
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+set $left d
+set $down h
+set $up t
+set $right n
 
 # Your preferred terminal emulator
 set $term urxvt
@@ -50,7 +52,7 @@ set $menu dmenu_run -l 11
     bindsym $mod+Return exec $term
 
     # kill focused window
-    bindsym $mod+Ctrl+p kill
+    bindsym $mod+q kill
 
     # start your launcher
     bindsym $mod+m exec $menu
@@ -63,10 +65,10 @@ set $menu dmenu_run -l 11
     floating_modifier $mod
 
     # reload the configuration file
-    bindsym $mod+Ctrl+c reload
+    bindsym $mod+e reload
 
     # exit sway (logs you out of your X session)
-    bindsym $mod+Ctrl+q exec "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Exit i3? (X session will end.)' -b 'Yes, exit i3' 'i3-msg exit'"
     
 #
 # Moving around:
@@ -77,10 +79,10 @@ set $menu dmenu_run -l 11
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # _move_ the focused window with the same, but add Ctrl
-    bindsym $mod+Ctrl+$left move left
-    bindsym $mod+Ctrl+$down move down
-    bindsym $mod+Ctrl+$up move up
-    bindsym $mod+Ctrl+$right move right
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
 #
 # Workspaces:
 #
@@ -89,29 +91,19 @@ set $menu dmenu_run -l 11
     # switch to workspace
     #bindsym $mod+1 workspace $workspace_1
     #bindsym $mod+2 workspace $workspace_2
-    bindsym $mod+1 workspace 1
+    bindsym $mod+0 workspace 1
     bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+4 workspace 3
+    bindsym $mod+6 workspace 4
+    bindsym $mod+8 workspace 5
     # move focused container to workspace
     #bindsym $mod+Ctrl+1 move container to workspace $workspace_1 
     #bindsym $mod+Ctrl+2 move container to workspace $workspace_2
-    bindsym $mod+Ctrl+1 move container to workspace 1
-    bindsym $mod+Ctrl+2 move container to workspace 2
-    bindsym $mod+Ctrl+3 move container to workspace 3
-    bindsym $mod+Ctrl+4 move container to workspace 4
-    bindsym $mod+Ctrl+5 move container to workspace 5
-    bindsym $mod+Ctrl+6 move container to workspace 6
-    bindsym $mod+Ctrl+7 move container to workspace 7
-    bindsym $mod+Ctrl+8 move container to workspace 8
-    bindsym $mod+Ctrl+9 move container to workspace 9
-    bindsym $mod+Ctrl+0 move container to workspace 10
+    bindsym $mod+Shift+0 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+4 move container to workspace 3
+    bindsym $mod+Shift+6 move container to workspace 4
+    bindsym $mod+Shift+8 move container to workspace 5
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
@@ -124,23 +116,23 @@ set $menu dmenu_run -l 11
     # You can "split" the current object of your focus with
     # $mod+i or $mod+o, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+i splith
-    bindsym $mod+o splitv
+    bindsym $mod+v splith
+    bindsym $mod+z splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+u layout toggle
+    bindsym $mod+l layout toggle
 
     # Make the current focus fullscreen
-    bindsym $mod+period fullscreen toggle
+    bindsym $mod+f fullscreen toggle
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Ctrl+space floating toggle
+    bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
     # move focus to the parent container
-    bindsym $mod+n focus parent
+    bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
@@ -148,7 +140,7 @@ set $menu dmenu_run -l 11
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Ctrl+minus move scratchpad
+    bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
@@ -178,7 +170,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+comma mode "resize"
+bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
@@ -204,12 +196,12 @@ hide_edge_borders both
 
 # Volume controls
 # Currently will only effect laptop speakers
-bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh up #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh down  #decrease sound volume
+bindsym $mod+Prior exec --no-startup-id volume.sh up #increase sound volume
+bindsym $mod+Next exec --no-startup-id volume.sh down  #decrease sound volume
 
 # Brightness up/down
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5%
+bindsym $mod+Shift+Prior exec --no-startup-id xbacklight +5%
+bindsym $mod+Shift+Next exec --no-startup-id xbacklight -5%
 
 # HDMI
 set $mode_display Ext Screen (h) HDMI1 On (Ctrl+h) Room HDMI1 (o) HDMI1 Off
@@ -221,7 +213,7 @@ mode "$mode_display" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Ctrl+n mode "$mode_display"
+bindsym $mod+Shift+o mode "$mode_display"
 
 # Sound
 set $mode_sound_output Sound Output (p) Headphones (h) HDMI (b) BlueTooth Speaker (s) Laptop Speakers
@@ -234,10 +226,10 @@ mode "$mode_sound_output" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Ctrl+s mode "$mode_sound_output"
+bindsym $mod+shift+s mode "$mode_sound_output"
 
 # Lock Screen
-bindsym $mod+Ctrl+x exec i3lock --color 323232
+bindsym $mod+x exec i3lock --color 323232
 
-# Print Screen
+# Print screen
 bindsym Print exec gnome-screenshot

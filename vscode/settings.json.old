@@ -9,5 +9,6 @@
 	"editor.renderIndentGuides": false,
 	"editor.renderLineHighlight": "all",
 	"editor.acceptSuggestionOnEnter": false,
-	"editor.cursorBlinking": "phase"
+	"editor.cursorBlinking": "phase",
+	"workbench.welcome.enabled": false
 }
