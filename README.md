@@ -1,2 +1,2 @@
 # dotfiles
-Different config files depending on the system
+Place for all my config files they don't get lost in the Ether
