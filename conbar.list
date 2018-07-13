@@ -1,0 +1,12 @@
+sakura:sakura.conf:/home/jared/.config/sakura/sakura.conf
+i3:config:/home/jared/.config/i3/config
+i3status:config:/home/jared/.config/i3status/config
+mpv:mpv.conf:/home/jared/.config/mpv/mpv.conf
+fish:config.fish:/home/jared/.config/fish/config.fish
+nitrogen:bg-saved.cfg:/home/jared/.config/nitrogen/bg-saved.cfg
+nitrogen:nitrogen.cfg:/home/jared/.config/nitrogen/nitrogen.cfg
+omf:bundle:/home/jared/.config/omf/bundle
+omf:theme:/home/jared/.config/omf/theme
+omf:channel:/home/jared/.config/omf/channel
+ranger:rifile.conf:/home/jared/.config/ranger/rifle.conf
+vim:.vimrc:/home/jared/.vimrc
