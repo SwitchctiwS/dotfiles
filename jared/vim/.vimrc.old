@@ -1,7 +1,7 @@
 set number
-set wrap
 set linebreak
 set showbreak=+++
+set textwidth=80
 set showmatch
 set visualbell
  
