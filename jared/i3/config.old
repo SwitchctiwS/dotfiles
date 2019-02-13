@@ -51,8 +51,6 @@ bindsym $mod+w exec vivaldi-stable
 bindsym $mod+f exec ranger-sakura
 bindsym Print exec xfce4-screenshooter -f
 bindsym $mod+Ctrl+Shift+l exec xfce4-session-logout
-bindsym $mod+s exec spotify
-bindsym $mod+r exec retroarch
 
 # kill focused window
 bindsym $mod+Shift+q kill

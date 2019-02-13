@@ -10,3 +10,4 @@ omf:$HOME/.config/omf/theme
 omf:$HOME/.config/omf/channel
 ranger:$HOME/.config/ranger/rifle.conf
 vim:$HOME/.vimrc
+vscode:$HOME/.config/Code/User/settings.json
