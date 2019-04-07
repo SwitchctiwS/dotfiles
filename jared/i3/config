@@ -19,6 +19,7 @@ set $term sakura
 #exec_always xrdb ~/.Xresources
 #exec_always xfce4-volumed
 exec nitrogen --restore
+#exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
 
 set $left h
 set $down j
@@ -48,11 +49,12 @@ bindsym $mod+Return exec $term
 bindsym $mod+v exec pavucontrol
 bindsym $mod+d exec arandr
 bindsym $mod+w exec vivaldi-stable
+bindsym $mod+Shift+w exec w3m-sakura
 bindsym $mod+f exec ranger-sakura
 bindsym Print exec xfce4-screenshooter -f
-bindsym $mod+Ctrl+Shift+l exec xfce4-session-logout
 bindsym $mod+s exec spotify
 bindsym $mod+r exec retroarch
+bindsym $mod+Ctrl+Shift+l exec i3lock -d -c 000000
 
 # kill focused window
 bindsym $mod+Shift+q kill
